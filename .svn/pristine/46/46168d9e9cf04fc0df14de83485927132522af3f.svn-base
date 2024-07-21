@@ -1,0 +1,217 @@
+package kr.happyjob.study.myprsm.service;
+
+import java.util.List;
+import java.util.Map;
+
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+
+import kr.happyjob.study.myprsm.dao.MyprsmDao;
+import kr.happyjob.study.myprsm.model.MyprsmModel;
+
+@Service
+public class MyprsmServiceImpl implements MyprsmService {
+
+	private final Logger logger = LogManager.getLogger(this.getClass());
+
+	private final String className = this.getClass().toString();
+
+	@Value("${fileUpload.rootPath}")
+	private String rootPath; // W:\\FileRepository
+
+	@Value("${fileUpload.virtualRootPath}")
+	private String virtualrootPath; // /serverfile
+
+	@Value("${fileUpload.noticePath}")
+	private String noticePath; // notice
+
+	@Autowired
+	MyprsmDao myprsmDao;
+
+	public List<MyprsmModel> resumelist(Map<String, Object> paramMap) throws Exception {
+
+		return myprsmDao.resumelist(paramMap);
+	}
+
+	public int countresumelist(Map<String, Object> paramMap) throws Exception {
+
+		return myprsmDao.countresumelist(paramMap);
+	}
+
+
+	public int resumenoinsert (Map<String, Object> paramMap) throws Exception {
+		
+		return myprsmDao.resumenoinsert(paramMap);
+	}
+	
+	public MyprsmModel resumenoselect (Map<String, Object> paramMap) throws Exception {
+		
+		return myprsmDao.resumenoselect(paramMap);
+	}
+	
+	
+	/** 이력서 기본정보 select */
+	public MyprsmModel resumeForm(Map<String, Object> paramMap) throws Exception {
+
+		return myprsmDao.resumeForm(paramMap);
+	}
+
+
+	
+	/** 링크 등록 */
+	public int resumelinkeinsert(Map<String, Object> paramMap) throws Exception {
+		paramMap.put("fileprc", "N");
+		return myprsmDao.resumelinkeinsert(paramMap);
+	}
+
+	/** 링크 수정 */
+	public int resumelinkupdate(Map<String, Object> paramMap) throws Exception {
+		paramMap.put("fileprc", "N");
+		return myprsmDao.resumelinkupdate(paramMap);
+	}
+
+	/** 링크 삭제 */
+	public int resumelinkdelete(Map<String, Object> paramMap) throws Exception {
+		return myprsmDao.resumelinkdelete(paramMap);
+	}
+	
+	/** 링크리스트*/
+	public List<MyprsmModel> resumelinklist(Map<String, Object> paramMap) throws Exception {
+
+		return myprsmDao.resumelinklist(paramMap);
+	}
+	
+	/** resumelistcount*/
+	
+	public int countlinklist(Map<String, Object> paramMap) throws Exception {
+		
+		return myprsmDao.countlinklist(paramMap);
+	}
+	
+	
+	/** 학력 등록 */
+	public int resumeeduinsert(Map<String, Object> paramMap) throws Exception {
+		
+		return myprsmDao.resumeeduinsert(paramMap);
+	}
+	
+	/** 학력 수정 */
+	public int resumeeduupdate(Map<String, Object> paramMap) throws Exception {
+		
+		return myprsmDao.resumeeduupdate(paramMap);
+	}
+	
+	/** 학력 삭제 */
+	public int resumeedudelete(Map<String, Object> paramMap) throws Exception {
+		
+		return myprsmDao.resumeedudelete(paramMap);
+	}
+	
+	public List<MyprsmModel> resumeedulist(Map<String, Object> paramMap) throws Exception {
+		
+		return myprsmDao.resumeedulist(paramMap);
+	}
+	
+	
+	public int countedulist(Map<String, Object> paramMap) throws Exception {
+		
+		return myprsmDao.countlinklist(paramMap);
+	}
+
+	public int resumecareerinsert(Map<String, Object> paramMap) throws Exception {
+
+		return myprsmDao.resumecareerinsert(paramMap);
+	}
+
+
+	public int resumecareerupdate(Map<String, Object> paramMap) throws Exception {
+
+		return 0;
+	}
+
+	public int resumecareerdelete(Map<String, Object> paramMap) throws Exception {
+	
+		return 0;
+	}
+	
+	
+	/** 프로젝트 등록 */
+	public int resumeprojectinsert(Map<String, Object> paramMap) throws Exception {
+		
+		return myprsmDao.resumeprojectinsert(paramMap);
+	}
+	
+	/** 프로젝트 수정 */
+	public int resumeprojectupdate(Map<String, Object> paramMap) throws Exception {
+		
+		return myprsmDao.resumeprojectupdate(paramMap);
+	}
+	
+	/** 프로젝트 삭제 */
+	public int resumeprojectdelete(Map<String, Object> paramMap) throws Exception {
+		
+		return myprsmDao.resumeprojectdelete(paramMap);
+	}
+	
+	public List<MyprsmModel> resumeacademylist(Map<String, Object> paramMap) throws Exception {
+
+		return myprsmDao.resumeacademylist(paramMap);
+	}
+	
+	public int countacademylist(Map<String, Object> paramMap) throws Exception {
+		
+		return myprsmDao.countacademylist(paramMap);
+	}
+	
+	/** 교육이력 등록 */
+	public int resumeacademyinsert(Map<String, Object> paramMap) throws Exception {
+		
+		return myprsmDao.resumeacademyinsert(paramMap);
+	}
+	
+	/** 교육이력 수정 */
+	public int resumeacademyupdate(Map<String, Object> paramMap) throws Exception {
+		
+		return myprsmDao.resumeacademyupdate(paramMap);
+	}
+	
+	/** 교육이력 삭제 */
+	public int resumeacademydelete(Map<String, Object> paramMap) throws Exception {
+		
+		return myprsmDao.resumeacademydelete(paramMap);
+	}
+	
+	public List<MyprsmModel> resumeintroductionlist(Map<String, Object> paramMap) throws Exception {
+
+		return myprsmDao.resumeintroductionlist(paramMap);
+	}
+	
+	public int countintroductionlist(Map<String, Object> paramMap) throws Exception {
+		
+		return myprsmDao.countintroductionlist(paramMap);
+	}
+	
+	/** 자기소개 등록 */
+	public int resumeintroductioninsert(Map<String, Object> paramMap) throws Exception {
+	
+		
+		return myprsmDao.resumeintroductioninsert(paramMap);
+	}
+	
+	/** 자기소개 수정 */
+	public int resumeintroductionupdate(Map<String, Object> paramMap) throws Exception {
+		
+		return myprsmDao.resumeintroductionupdate(paramMap);
+	}
+	
+	/** 자기소개 삭제 */
+	public int resumeintroductiondelete(Map<String, Object> paramMap) throws Exception {
+		
+		return myprsmDao.resumeintroductiondelete(paramMap);
+	}
+	
+	
+}

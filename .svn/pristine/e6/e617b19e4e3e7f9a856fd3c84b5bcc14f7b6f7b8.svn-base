@@ -1,0 +1,35 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<style>
+
+
+#footer {
+	
+	width: 100%;
+	height: 300px;
+	bottom: 0px;
+	position: absolute;
+	background-color: #282828;
+}
+
+#footer-section span {
+	vertical-align: middle;
+	text-align: center;
+	color: #111111;
+	font-size: 20px;
+}
+
+
+</style>
+
+
+
+<!-- Footer Section Begin -->
+
+    <footer id="footer-section">
+         <div id="footer">
+              <span id="thefirstprize">Seoul Newdeal Project - Hi! Job</span>
+				<span id="thefirstprize2">Copyright (c) Hi! Job. All rights reserved.</span>
+        </div>
+    </footer>

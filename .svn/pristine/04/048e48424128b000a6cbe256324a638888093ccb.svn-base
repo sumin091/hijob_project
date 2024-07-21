@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.happyjob.study.mngcmg.dao.MngCmgDao">
+
+	<!--  목록 조회 -->
+	<select id="complist" resultType="kr.happyjob.study.mngcmg.model.MngCmgModel">
+		/*kr.happyjob.study.mngcmg.dao.MngCmgDao.complist*/
+		select  user_no
+				,	loginID
+				,	user_hp
+				,	user_regdate
+				,  	user_businesstype
+				,	user_coname
+				,	user_rpname
+				,	user_cornm
+				,	user_zipcode 
+				,   user_address1
+				,	user_address2
+				,	user_status
+				,	user_manager
+				
+				,	user_type
+				
+		from tb_userinfo
+		<where>	
+		<if test ="(sname != null) and (!sname.equals(''))">
+				<choose>
+					<when
+						test="searchKey eq 'writer'.toString()">
+						and user_coname Like CONCAT('%', #{sname}, '%')	
+					</when>
+					<when
+						test="searchKey eq 'title'.toString()">
+						and user_rpname LIKE CONCAT('%', #{sname}, '%')
+					</when>
+					<otherwise>
+						and ( 	user_coname Like CONCAT('%', #{sname}, '%')
+							 or user_rpname LIKE CONCAT('%', #{sname}, '%')
+							)
+					</otherwise>
+				</choose>
+			</if>
+		</where>
+		ORDER BY user_regdate DESC
+		LIMIT #{pageindex}, #{pageSize}
+
+	</select>
+	
+	<select id="countcomplist" resultType="int">
+		/*kr.happyjob.study.mngcmg.dao.MngCmgDao.complist*/
+		select count(*)
+			from tb_userinfo
+			
+		<where>
+		<if test ="(sname != null) and (!sname.equals(''))">
+				<choose>
+					<when
+						test="searchKey eq 'writer'.toString()">
+						and user_coname Like CONCAT('%', #{sname}, '%')	
+					</when>
+					<when
+						test="searchKey eq 'title'.toString()">
+						and user_rpname LIKE CONCAT('%', #{sname}, '%')
+					</when>
+					<otherwise>
+						and ( 	user_coname Like CONCAT('%', #{sname}, '%')
+							 or user_rpname LIKE CONCAT('%', #{sname}, '%')
+							)
+					</otherwise>
+				</choose>
+			</if>
+		</where>
+	
+	</select>
+	
+	<select id="compselectone" resultType="kr.happyjob.study.mngcmg.model.MngCmgModel">
+		select  user_no
+				,	loginID
+				,	user_hp
+				,	user_regdate
+				,  	user_businesstype
+				,	user_coname
+				,	user_rpname
+				,	user_cornm
+				,	user_zipcode 
+				,   user_address1
+				,	user_address2
+				,	user_status
+				,	user_manager
+				
+				,	user_type
+				
+			from tb_userinfo
+		
+		where user_no= #{user_no}
+			
+	</select>
+	
+	<update id ="compupdate">
+		update tb_userinfo
+					set 	user_status = 'Y',
+							user_type   = 'C'
+							
+		where  user_no = #{user_no}
+	</update>
+	
+	<update id ="compdelete">
+		update tb_userinfo
+					set 	user_status = 'N',
+							user_type   = 'R'
+					
+		where  user_no = #{user_no}
+	</update>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+</mapper>

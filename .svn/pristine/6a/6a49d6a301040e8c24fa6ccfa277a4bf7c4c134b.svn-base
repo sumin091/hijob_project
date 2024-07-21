@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.happyjob.study.myprmg.dao.MypRmgDao">
+
+	<!--  한건 조회 -->
+	<select id="adverselectone" resultType="kr.happyjob.study.myprmg.dto.MypRmgDto">
+		/*kr.happyjob.study.myprmg.dto.MypRmgDto.adverselectone*/
+		
+       	SELECT cr.corecruit_no,
+       				cr.corecruit_title,
+       			    cr.user_no,
+       			    cr.loginID,
+       			    ui.name,
+       			    ui.user_businesstype,
+       			    ui.user_coname,
+       			    ui.user_rpname,
+       			    ui.user_regdate,
+       			    cr.corecruit_strdate,
+       			    cr.corecruit_enddate,
+       			    cr.corecruit_address1,
+       			    cr.corecruit_address2,
+       			    cr.corecruit_mapapi,
+       			    ss.session_code,
+       			    cr.corecruit_mainjob,
+       			    cr.corecruit_requirement,
+       			    cr.corecruit_preference,
+       			    cr.corecruit_etc,
+       			    cr.corecruit_merit,
+       			    cr.corecruit_introduce,
+       			    ct.city1_no,
+       			    ct.city1_name,
+       			    cy.city2_no,
+       			    cy.city2_name,
+       			    cr.att_no,
+       			    at.att_name,
+       			    at.att_phypath,
+       			    at.att_logpath,
+       			    at.att_size,
+       			    at.att_extname,
+       			    cr.like_yn
+   		FROM tb_corecruit cr
+					INNER JOIN tb_userinfo ui ON ui.loginID = cr.loginID
+					INNER JOIN tb_session ss ON ss.session_code = cr.session_code
+					LEFT OUTER JOIN tb_city1 ct ON ct.city1_no = cr.city1_no
+					LEFT OUTER JOIN tb_city2 cy ON cy.city2_no = cr.city2_no
+					LEFT OUTER JOIN tb_att at ON at.att_no = cr.att_no
+		WHERE cr.corecruit_no = "1";
+	</select>
+	
+	
+	<!--  한건 조회 + 스킬 따로 가져오기 -->
+	<select id="skillist" resultType="kr.happyjob.study.myprmg.dto.MypRmgDto">
+		/*kr.happyjob.study.myprmg.dto.MypRmgDto.adverselectone*/
+		
+       	SELECT co.dtlcodeCD   
+      				,dc.detail_name
+  		 FROM tb_coskill co
+       				inner join tb_detail_code dc on dc.detail_code = co.dtlcodeCD  and group_code = 'dtlcodeCD'
+ 		where co.corecruit_no = 1;
+
+	</select>
+	
+</mapper>

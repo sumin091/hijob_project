@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.happyjob.study.mngbmg.dao.MngBmgDao">
+
+<select id ="qnalist" resultType="kr.happyjob.study.mngbmg.model.MngBmgModel">
+		/*kr.happyjob.study.mngbmg.dao.MngBmgDao.qnalist*/
+    		select tq.qna_no
+    		  ,tq.qna_del_yn
+    		  ,tq.qna_title
+			  ,tq.qna_content
+			  ,tq.qna_uploaddate
+			  ,tq.qna_uploader		
+		from tb_qna tq  
+ 			 inner join tb_userinfo ui on ui.user_no = tq.user_no
+		
+		ORDER BY tq.qna_no ASC
+		
+	
+	</select>
+	
+	
+	<select id ="countqnalist" resultType="int">
+		/*kr.happyjob.study.mngbmg.dao.MngBmgDao.countqnalist*/
+		select count(*)
+			from tb_qna tq  
+ 			 inner join tb_userinfo ui on ui.user_no = tq.user_no
+		
+	</select>
+	
+	<select id="qnaselectone" resultType="kr.happyjob.study.mngbmg.model.MngBmgModel">
+	       select tq.qna_no
+	       	  ,tq.qna_del_yn
+	       	  ,tq.qna_title
+			  ,tq.qna_content
+			  ,tq.qna_uploaddate
+			  ,tq.qna_uploader	
+		 from tb_qna tq
+               inner join tb_userinfo ui on ui.user_no = tq.user_no
+        where tq.qna_no = #{qna_no}     
+	</select>
+	
+
+	<update id ="qnadelete">
+		update tb_qna
+			  set qna_del_yn = 'Y'
+		where	qna_no = #{qna_no}
+	</update>
+
+	
+	<delete id ="qnadeleteold">
+		delete from tb_qna
+		where  qna_no = #{qna_no}
+	</delete>
+
+
+	
+	
+	
+
+
+</mapper>

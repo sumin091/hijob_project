@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.happyjob.study.mngumg.dao.MngUmgDao">
+     
+     <!-- 회원가입 -->
+     <update id="mdificationUser" parameterType="java.util.Map">
+     /*kr.happy.study.mngumg.dao.MngUmgDao.mdificationUser*/
+     	UPDATE  tb_userinfo (
+     							user_no
+     						,	loginID
+     						,	user_hp
+     						,	user_regdate
+     						,	user_businesstype
+							,	user_coname
+     						,	user_rpname
+     						,	user_cornm
+     						,	user_zipcode
+     						,	user_address1
+     						,	user_address2
+     						,	password
+     						,	user_manager
+     	where  loginID = #{loginID}					
+  	</update>
+  	
+  	<select id="modifiselectone" resultType="kr.happyjob.study.mngumg.model.UserInfo">
+		select  user_no
+				,	loginID
+				,  	user_businesstype
+				,	user_coname
+				,	user_rpname
+				,	user_cornm
+				,	user_zipcode 
+				,   user_address1
+				,	user_address2
+				,	user_manager
+				,	user_hp
+				
+			from tb_userinfo
+		
+		where loginID = #{loginID}
+			
+	</select>
+  	
+  	  
+</mapper>

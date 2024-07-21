@@ -1,0 +1,33 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
+
+   	<!-- 지원 현황 상세 -->
+    <section class="myapply_recruit">
+            <div class="mypage_head_recruit">
+                <h2>서류통과 총 $명</h2>
+            </div>
+            <hr class="jb-division-line"></hr>
+     
+             <div class="mypage_content">
+                <div class="content_list">
+                	<ul class="recruit_list_ul">
+                			<li class="recruit_list_li">
+                			 		<dl class="applicant_dl">
+ 										<dt class="applicant_name">지원자 이름</dt>
+ 										<dt class="applicant_status_dt">
+ 												<span class="applicant_status">이력서 보기</span>
+ 												 <span class="applicant_status">합격</span>
+ 												  <span class="applicant_status">불합격</span>
+ 												  <span class="applicant_status">현재 상태</span>
+ 										</dt>		   
+									</dl>
+                			</li>		
+                	</ul>
+                </div>
+            </div>
+
+    </section>
+	

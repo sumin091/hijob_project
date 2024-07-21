@@ -1,0 +1,33 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
+					       
+					     
+	<section id="section_container">
+					     
+					 
+   	<!-- 지원 현황 상세 -->
+    <section class="myapply_recruit">
+            <div class="mypage_head_recruit">
+                <h2>불합격 총 $건</h2>
+            </div>
+            <hr class="jb-division-line"></hr>
+     
+            <div class="mypage_content">
+                <div class="content_list">
+                	<ul class="recruit_list_ul">
+                			<li class="recruit_list_li">
+                				<a href="">
+                			 		<dl>
+ 										<dt class="company_name">회사 이름 <span class="recuit_status">현재 상태</span></dt> 
+ 										<dd class="recruit_name">공고 제목</dd>
+									</dl>
+                				</a>
+                			</li>
+                	</ul>
+                </div>
+            </div>
+
+    </section>

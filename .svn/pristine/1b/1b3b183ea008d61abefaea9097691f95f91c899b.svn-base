@@ -1,0 +1,44 @@
+package kr.happyjob.study.mngumg.service;
+
+import java.io.File;
+import java.util.List;
+import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+
+import kr.happyjob.study.common.comnUtils.FileUtilCho;
+import kr.happyjob.study.mngumg.dao.MngUmgDao;
+import kr.happyjob.study.mngumg.model.UserInfo;
+
+
+
+@Service("mngumgService")
+public class MngUmgServiceImpl implements MngUmgService {
+	
+	// Set logger
+		@SuppressWarnings("unused")
+		private final Logger logger = LogManager.getLogger(this.getClass());
+		
+		@Autowired
+		private MngUmgDao mngumgDao;
+	
+	
+	/**사용자 정보 수정*/
+	@Override
+	public int mdificationUser(Map<String, Object> paramMap) throws Exception {
+		int ret = mngumgDao.mdificationUser(paramMap);
+		return ret;
+	}
+	
+	/** 한건 조회 */
+	@Override
+	public UserInfo modifiselectone(Map<String, Object> paramMap) throws Exception {
+		
+		return mngumgDao.modifiselectone(paramMap);
+	}
+}

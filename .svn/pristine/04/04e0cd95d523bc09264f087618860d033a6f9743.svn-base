@@ -1,0 +1,74 @@
+
+/* 메인 디자인 / 조아라 작성 */
+
+/* 대시보드 */
+
+	 /* 좌측 메뉴 */
+  click-able rows
+	.clickable-rows {tbody tr td { cursor:pointer;
+	}
+
+	.el-table__expanded-cell {
+	cursor: default;
+	}
+	
+	.btn_top {
+	vertical-align: middle;
+	text-align: center;
+	border-radius: 50px; 
+	position: fixed;
+	right: 120px;
+	bottom: 50px;
+	width: 50px;
+	height: 50px;
+	border: 1px solid #8a8a8a;
+	color: #8a8a8a;
+	line-height: 50px;
+	display: none
+}
+
+.btn_top a {
+  display: block;
+  text-align: center;
+  font-size: 20px;
+
+}
+	
+	
+ #expo_banner {
+  max-width: 600px;
+  max-height: 150px;
+  object-fit: cover;
+  }
+  
+  #main_recruitlist {
+  	padding-left: 100px;
+  }
+  
+  #main_recruitlist_head {
+  	 display: flex;
+  	 padding-left: 40px;
+  }
+	
+ #main_recruitlist_head_name2 {
+	font-size: 100px;
+	font-weight: 500;
+}
+
+ #main_recruitlist_head_plus {
+	position: absolute;
+	display: block;
+	right: 10px;
+}
+	
+  
+  
+#banner_small {
+	max-width: 800px;
+	max-height: 200px;
+}
+  
+ 
+
+
+ 

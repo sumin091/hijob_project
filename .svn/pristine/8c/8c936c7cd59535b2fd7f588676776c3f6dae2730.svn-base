@@ -1,0 +1,40 @@
+package kr.happyjob.study.myprmg.service;
+
+import java.util.List;
+import java.util.Map;
+
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import kr.happyjob.study.myprmg.dao.MypRmgDao;
+import kr.happyjob.study.myprmg.dto.MypRmgDto;
+
+
+@Service
+public class MypRmgServiceImpl implements MypRmgService {
+
+   // Set logger
+   private final Logger logger = LogManager.getLogger(this.getClass());
+   
+   // Get class name for logger
+   private final String className = this.getClass().toString();
+   
+   @Autowired
+   MypRmgDao mypRmgDao;
+   
+	
+	/** 기업 - 공고 한건 조회 */
+	public MypRmgDto adverselectone(Map<String, Object> paramMap) throws Exception {
+
+		return mypRmgDao.adverselectone(paramMap);
+	}
+
+	/** 기업 - 공고 한건 조회 + 스킬 리스트 낱개로 가져오기*/
+	public List<MypRmgDto> skillist(Map<String, Object> paramMap) throws Exception {
+	
+	return mypRmgDao.skillist(paramMap);
+	}
+	
+}
